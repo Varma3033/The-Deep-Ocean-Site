@@ -1,5 +1,7 @@
 # Developer Notes
 
+https://varma3033.github.io/The-Deep-Ocean-Site/
+
 My website looks into 'The Deep Ocean' and the different zones of it.
 The site has been structured so that as you go deeper, the section colour becomes darker, imitating the different zones of the ocean
 
