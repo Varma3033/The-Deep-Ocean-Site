@@ -1,0 +1,752 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  max-width: 100%;
+}
+
+/* headings */
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.75rem;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+p {
+  font-size: 1.25rem;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*max height for each section*/
+section {
+  max-height: 100vh;
+}
+
+/*dot nav*/
+.nav {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.dot-nav {
+  padding: 0.5em 0em;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-link {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  height: 0.5em;
+  width: 0.5em;
+  margin-left: 0.6em;
+}
+
+/*span label for dots*/
+.nav-label {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75rem;
+  opacity: 0; /*begin hidden*/
+  transition: 0.2s ease-in-out;
+  padding: 0.2em;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+/*when nav-link is hovered over, display nav label*/
+.nav-link:hover ~ .nav-label {
+  opacity: 1;
+}
+
+/*when in active state*/
+.nav-link.active {
+  background-color: white;
+  scale: 1.3;
+}
+
+.nav-link:hover {
+  scale: 1.2;
+  background-color: white;
+}
+
+/*header*/
+header {
+  background-color: black;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+  height: 6em;
+  max-width: 100%;
+  z-index: 0;
+}
+
+#nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 6em;
+}
+
+#title {
+  text-decoration: none;
+  color: white;
+  padding-left: 1.25em;
+}
+
+#sidebar {
+  display: none; /* start hidden */
+  position: fixed;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(2, 36, 67, 0.8);
+  backdrop-filter: blur(7.5px);
+  flex-direction: column;
+  z-index: 998;
+  transition: all 0.2s ease;
+}
+
+#sidebar.active {
+  display: flex; /* show fullscreen when active */
+}
+
+#close-sidebar {
+  width: 100%;
+  text-align: right;
+  padding: 1.25em 2.25em;
+  cursor: pointer;
+}
+
+#open-sidebar {
+  cursor: pointer;
+  padding-right: 2.25em;
+}
+
+.sidebarList {
+  transition: all 0.25s ease;
+}
+
+.sidebarList:hover {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.sidebarList a {
+  height: 6em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  z-index: 998;
+}
+
+/*homepage*/
+
+#homepage {
+  height: 100vh;
+  max-width: 100%;
+  color: white;
+  background-color: rgb(84, 142, 183);
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+#homepage-content {
+  margin-top: 10em;
+}
+
+#homeh3Wrapper {
+  padding-top: 2em;
+}
+
+#homeh3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*create blinking cursor effect, when text is typed*/
+#homeh3::after {
+  content: "|";
+  padding-bottom: 0.25em;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+#homeh4Wrapper {
+  padding-top: 4em;
+}
+
+#homeh4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#homepage-btn {
+  height: 6em;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.diveBelow-btn {
+  width: 5em;
+  height: 5em;
+  background-color: black;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+.diveBelow-btn:hover {
+  scale: 1.2;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+}
+
+.fa-solid,
+.fa-arrow-down {
+  scale: 2.5;
+  color: white;
+}
+
+/*arrows*/
+.fa-solid,
+.fa-arrow-up {
+  scale: 2.5;
+  color: white;
+}
+
+/* main */
+
+.wrapper {
+  max-height: 100vh;
+  max-width: 100%;
+  padding-top: 1em;
+  justify-content: center;
+}
+
+.sec-content {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.sec-p1 {
+  padding-bottom: 1em;
+}
+
+.sec-p2 {
+  padding-bottom: 1em;
+}
+
+.animal-intro {
+  padding-bottom: 0.2em;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/*animal cards */
+
+#animalContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  max-width: 100%;
+  padding-top: 1em;
+  height: 15em;
+  z-index: 999;
+}
+
+/* Outer wrapper*/
+.animalCard {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.082);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  perspective: 5000px; /* enables 3D flip */
+  position: relative;
+  text-align: center;
+  transform-style: preserve-3d;
+}
+
+.animalCard:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease-out;
+}
+
+/* flip card when clicked using JS */
+.animalCard.flip {
+  transform: rotateX(0deg);
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+}
+
+/* Front & back faces */
+.animalCardFront,
+.animalCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.animalCardFront {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.animalCardBack {
+  background-color: rgb(6, 60, 92);
+  padding: 1em;
+  color: white;
+  transform: rotateX(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.animalCardBack:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* on click flip behaviour*/
+.animalCard.flip .animalCardFront {
+  transform: rotateX(180deg);
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.animalCard.flip .animalCardBack {
+  transform: rotateX(0deg);
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.animalCardBack p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Animal images */
+
+img {
+  width: 10em;
+  height: 8em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  object-fit: cover;
+  z-index: -999;
+}
+
+/*section buttons*/
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.downSection-btn {
+  height: 5em;
+  width: 5em;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.deeper-btn {
+  margin-top: 0.5em;
+  width: 5em;
+  height: 5em;
+  background-color: black;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+.deeper-btn:hover {
+  scale: 1.1;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+}
+
+/*btn label*/
+#deeper-btn-label {
+  margin: 0.25em 10em 0 10em;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.midnight-downSection-btn {
+  height: 5em;
+  width: 5em;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.midnight-deeper-btn {
+  width: 5em;
+  height: 5em;
+  background-color: black;
+  border-radius: 50%;
+  justify-content: center;
+  margin-top: 0.5em;
+}
+
+.midnight-deeper-btn:hover {
+  scale: 1.1;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+}
+
+#mid-deeper-btn-label {
+  padding-top: 1em;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/*final btn*/
+.to-top-btn {
+  height: 5em;
+  width: 5em;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.diveup-top-btn {
+  width: 5em;
+  height: 5em;
+  background-color: black;
+  border-radius: 50%;
+  justify-content: center;
+  margin: 0.25em 0 0 0;
+}
+
+.diveup-top-btn:hover {
+  scale: 1.1;
+  transition: 0.2s ease-out;
+  cursor: pointer;
+}
+
+#to-top-btn-label {
+  margin-top: -0.2em;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/*section style*/
+#sunlightZone {
+  height: 100vh;
+  max-width: 100%;
+  color: white;
+  background-color: rgb(69, 124, 161);
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+#twilightZone {
+  height: 100vh;
+  max-width: 100%;
+  color: white;
+  background-color: rgb(29, 93, 136);
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+#midnightZone {
+  height: 100vh;
+  max-width: 100%;
+  color: white;
+  background-color: rgb(15, 66, 100);
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/*depth wrapper*/
+#avgdepth {
+  color: white;
+  background-color: black;
+}
+
+.depth-wrapper {
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 0.5em 0em;
+}
+
+#abyss {
+  height: 100vh;
+  max-width: 100%;
+  color: white;
+  background-color: rgb(9, 34, 51);
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+#trenches {
+  height: 100vh;
+  max-width: 100%;
+  color: white;
+  background-color: rgb(1, 15, 25);
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/*footer*/
+
+footer {
+  background-color: rgb(0, 0, 0);
+  height: 4em;
+  width: 100%;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 10px 10px 10px 10px rgba(0, 132, 255, 0.034);
+}
+
+footer p {
+  font-size: 0.75rem;
+  padding: 1.25em 5em;
+}
+
+@media (min-width: 1440px) {
+  h2 {
+    font-size: 1.75rem;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    scale: 1.25;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    scale: 1.25;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    scale: 1.25;
+  }
+
+  h5 {
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    scale: 1.25;
+  }
+
+  p {
+    font-size: 1.25rem;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /*max height for each section*/
+  section {
+    max-height: 100vh;
+  }
+
+  /*dot nav*/
+  .nav {
+    position: fixed;
+    padding-left: 3em;
+    top: 50%;
+    transform: translateY(-50%);
+    scale: 1.2;
+  }
+
+  /*header*/
+  header {
+    background-color: black;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+    height: 6em;
+    max-width: 100%;
+    z-index: 0;
+  }
+
+  #nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 6em;
+  }
+
+  /*homepage*/
+  #homepage-content {
+    margin-top: 15em;
+    scale: 1.25;
+  }
+
+  #homeh4Wrapper {
+    padding-top: 6em;
+  }
+
+  /* main */
+  .wrapper {
+    max-height: 100vh;
+    max-width: 100%;
+    padding-top: 2em;
+    justify-content: center;
+  }
+
+  .sec-content {
+    padding-left: 15em;
+    padding-right: 15em;
+    scale: 1.1;
+  }
+
+  .sec-info {
+    padding-top: 2em;
+    padding-bottom: 0.5em;
+  }
+
+  .sec-p1 {
+    padding-bottom: 1em;
+  }
+
+  .sec-p2 {
+    padding-top: 0.5em;
+  }
+
+  .sec-p3 {
+    padding-bottom: 1em;
+  }
+
+  .animal-intro {
+    padding-bottom: 1em;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  /*animal cards */
+  #animalContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3em;
+    max-width: 100%;
+    padding-top: 1em;
+    height: 17em;
+    z-index: 999;
+  }
+
+  /* Outer wrapper*/
+  .animalCard {
+    width: 250px;
+    height: 250px;
+  }
+
+  .animalCardBack p {
+    font-size: 1.25rem;
+  }
+
+  /* Animal images */
+  img {
+    width: 12em;
+    height: 10em;
+    margin-bottom: 1em;
+    border-radius: 10px;
+    object-fit: cover;
+    z-index: -999;
+  }
+
+  /*btn label*/
+  #deeper-btn-label {
+    padding: 0.25em 0 0 0;
+    font-size: 1.1rem;
+  }
+
+  #mid-deeper-btn-label {
+    padding-top: 0.5em;
+    font-size: 1.1rem;
+  }
+
+  .depth-wrapper {
+    background-color: rgba(0, 0, 0, 0.75);
+    margin-top: -0.5em;
+  }
+}
